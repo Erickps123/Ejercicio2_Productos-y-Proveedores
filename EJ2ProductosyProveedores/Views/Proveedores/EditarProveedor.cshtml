@@ -1,0 +1,52 @@
+﻿@model Proveedores
+@{
+    DatosProveedor proveedor = new DatosProveedor();
+    ViewData["Title"] = "Modificar Proveedor";
+    int i = 0;
+}
+<h1>Modificar Proveedor </h1>
+<div class="col-6 ">
+    <h5 class="text-primary">Selecciona el Proveedor</h5>
+    <form method="post">
+        <select name="opciones" class="form-control">
+            <option>Seleccionar</option>
+            @foreach (var Data in proveedor.Proveedores)
+            {
+
+                <option value="@Data.ID"> @Data.ID) @Data.NOMBRE</option>
+                @(i++)
+            }
+        </select>
+        <br />
+        <div class="text-md-left">
+            <button class="btn btn-info" type="submit">Cargar Detalles</button>
+        </div>
+    </form>
+</div>
+<br />
+<div class="row">
+    <div class="col-6 formulario">
+        <form method="post" role="form">
+            <div class="form-group">
+                <h5>ID</h5>
+                <input id="ID" asp-for="ID" class="form-control" value="@ViewData["Codigo"]" readonly required />
+            </div>
+            <div class="form-group">
+                <h5>Nombre</h5>
+                <input class="form-control" asp-for="NOMBRE" value="@ViewData["Nombre"]" Required />
+            </div>
+            <div class="form-group">
+                <h5>Numero telefonico</h5>
+                <input asp-for="NUM_TELEF" value="@ViewData["NumeroTel"]" class="form-control input-phone" maxlength="12" id="phone" placeholder="000-000-0000" pattern="[0-9]{3}[ -][0-9]{3}[ -][0-9]{4}" title="Formato: 000-000-0000" required />
+            </div>
+            <div class="form-group">
+                <h5>Direccion del Proveedor</h5>
+                <input class="form-control" asp-for="DIRECCION" value="@ViewData["Direccion"]" Required />
+            </div>
+            <button type="submit" name="Save" value="save" class="btn btn-success">Guardar Cambios</button>
+        </form>
+    </div>
+
+
+</div>
+

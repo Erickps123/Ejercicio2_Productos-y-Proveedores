@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center container">
+    <div class="row">
+
+        <div class="col-sm">
+            <span>🛍️</span>
+            <a asp-area="" asp-controller="Productos" asp-action="VerProductos">Listado de Productos</a>
+        </div>
+        <div class="col-sm">
+            <span>👦</span>
+            <a asp-area="" asp-controller="Proveedores" asp-action="VerProveedor">Listado de Proveedores</a>
+        </div>
+    </div>
+</div>
+<style>
+    .col-sm {
+        background-color: aliceblue;
+        margin: 1%;
+        padding: 20%;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    span {
+        font-size: 36px;
+    }
+</style>
+

@@ -1,0 +1,63 @@
+﻿@model DatosProductos
+@{
+    ViewData["Title"] = "Modificar Productos";
+    int Posicion = 0;
+    int count = 0;
+}
+<h1>Eliminar Producto </h1>
+
+<div class="col-6 ">
+    <h5 class="text-primary">Selecciona el Producto</h5>
+    <form method="post">
+        <select name="opciones" class="form-control">
+            <option>Seleccionar</option>
+            @foreach (var Data in Model.Productos)
+            {
+                <option value="@Data.ID">@Data.ID) @Data.NOMBRE</option>
+
+                @(count++);
+
+            }
+        </select>
+        <br />
+      
+        <div class="text-md-left">
+            <button class="btn btn-info" type="submit">Cargar Detalles</button>
+        </div>
+    </form>
+</div>
+
+<br />
+
+@ViewBag.Count
+<div class="row">
+    <div class="col-6 formulario">
+        <form method="post">
+            <div class="form-group">
+                <h5>Codigo</h5>
+                <input id="ID" asp-for="IDSelected" class="form-control" value="@ViewData["Codigo"]" readonly Required />
+            </div>
+            <div class="form-group">
+                <h5>Nombre</h5>
+                <input class="form-control" value="@ViewData["Nombre"]" readonly Required />
+            </div>
+            <div class="form-group">
+                <h5>Descripcion</h5>
+                <textarea class="form-control" rows="3" readonly Required>@ViewData["descripcion"]</textarea>
+            </div>
+            <div class="form-group">
+                <h5>Fecha de Vencimiento</h5>
+                <input class="form-control" value="@ViewData["FechaVenc"]" readonly Required />
+            </div>
+            <div class="form-group">
+                <h5>ID del Proveedor</h5>
+                <input class="form-control" value="@ViewData["IDproveedor"]" readonly Required />
+            </div>
+
+            <button type="submit" name="Delete" value="delete" class="btn btn-danger">Eliminar</button>
+        </form>
+    </div>
+
+
+</div>
+

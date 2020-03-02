@@ -1,0 +1,43 @@
+﻿@model DatosProveedor
+@{
+    ViewData["Title"] = "VerProveedores";
+}
+
+<h1>Proveedores</h1>
+@if (Model.Proveedores.Count > 0)
+{
+<a class="alert-link" asp-controller="Proveedores" asp-action="AgregarProveedor">Agregar |</a><a class="alert-link" asp-controller="Proveedores" asp-action="EditarProveedor"> Editar |</a><a class="alert-link" asp-controller="Proveedores" asp-action="EliminarProveedor"> Eliminar</a>
+        }
+        <br />
+        <div>
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Dirección</th>
+                            <th>Numero Teléfonico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var Proveedor in Model.Proveedores)
+                        {
+                            <tr>
+                                <td>@Proveedor.ID</td>
+                                <td>@Proveedor.NOMBRE</td>
+                                <td>@Proveedor.DIRECCION</td>
+                                <td>@Proveedor.NUM_TELEF</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                @if (Model.Proveedores.Count == 0)
+                {
+                    <div class="text-center">
+                        <a class="alert-link" asp-controller="Proveedores" asp-action="AgregarProveedor">  ¿Deseas añadir tu primer proveedor?</a>
+                    </div>
+                }
+            </div>
+        </div>
